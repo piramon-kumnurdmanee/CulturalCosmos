@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakota Astro Map</title>
+    <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.117/Build/Cesium/Widgets/widgets.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Lato', sans-serif;
+        }
+        header {
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        header nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        header nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 8px;
+        }
+        header nav ul li:hover ul {
+            display: block;
+        }
+        header nav ul li ul li {
+            padding: 10px;
+        }
+        header nav ul li ul li a {
+            color: #333;
+        }
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        #infoContainer {
+            position: relative;
+            width: 80%;
+            height: 80vh;
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #content {
+            display: flex;
+            height: 100%;
+            justify-content: space-between;
+        }
+        #infoPanel {
+            width: 45%;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #mapContainer {
+            width: 45%;
+            height: 100%;
+            background-color: #e0e0e0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #mapControls {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        #mapControls button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        #mapControls button:focus {
+            outline: none;
+        }
+        #cesiumContainer {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.117/Build/Cesium/Cesium.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1>Lakota Astro Map</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Instruction</a>
+                    <ul>
+                        <li><a href="#">Step 1</a></li>
+                        <li><a href="#">Step 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Reading List</a>
+                    <ul>
+                        <li><a href="#">Article 1</a></li>
+                        <li><a href="#">Article 2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Contributors</a></li>
+                <li><a href="#">Submit Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="infoContainer">
+            <div id="content">
+                <div id="infoPanel">
+                    <h2>Explanation about Black Hills and the importance</h2>
+                    <p>Black Hills is a sacred area for the Lakota people...</p>
+                </div>
+                <div id="mapContainer">
+                    <div id="cesiumContainer"></div>
+                </div>
+            </div>
+            <div id="mapControls">
+                <button id="prevSlide">&#8592;</button>
+                <button id="nextSlide">&#8594;</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZWZiNGI2NS1lMzlmLTRkZmQtYWYwNS1mY2FhZjNkODc5OTIiLCJpZCI6MjE3NjkzLCJpYXQiOjE3MTY2MTQ4MjV9.J1vLuwX4TXsxMNYhcInTYbmu4Thh5EidKp8tyX1NuyY';
+
+            const viewer = new Cesium.Viewer('cesiumContainer', {
+                terrainProvider: Cesium.createWorldTerrain(),
+                animation: false,
+                timeline: false
+            });
+
+            viewer.camera.flyTo({
+                destination: Cesium.Cartesian3.fromDegrees(-103.8718, 42.094, 75000),
+                orientation: {
+                    heading: Cesium.Math.toRadians(0.0),
+                    pitch: Cesium.Math.toRadians(-20.0),
+                }
+            });
+
+            Cesium.createOsmBuildingsAsync().then(buildingTileset => {
+                viewer.scene.primitives.add(buildingTileset);
+            }).catch(error => {
+                console.error('Error loading OSM buildings:', error);
+            });
+
+            async function fetchSiteData() {
+                try {
+                    const response = await fetch('http://localhost:3000/sites');
+                    const sites = await response.json();
+
+                    sites.forEach(site => {
+                        viewer.entities.add({
+                            name: site.site_name,
+                            position: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude),
+                            point: {
+                                pixelSize: 10,
+                                color: Cesium.Color.RED,
+                            },
+                            label: {
+                                text: site.site_name,
+                                font: '14pt monospace',
+                                style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                                outlineWidth: 2,
+                                verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                                pixelOffset: new Cesium.Cartesian2(0, -20),
+                            },
+                            description: `
+                                <h2>${site.site_name}</h2>
+                                <p>${site.description}</p>
+                                <p><strong>Constellation:</strong> ${site.constellation}</p>
+                                <p><strong>Tags:</strong> ${site.tags}</p>
+                                <img src="${site.image_url}" alt="${site.site_name}" width="200" />
+                            `
+                        });
+                    });
+                } catch (error) {
+                    console.error('Error fetching site data:', error);
+                }
+            }
+
+            fetchSiteData();
+        });
+    </script>
+</body>
+</html>
