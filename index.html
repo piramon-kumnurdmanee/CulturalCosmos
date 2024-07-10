@@ -5,15 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lakota Astro Map</title>
-    <link rel="stylesheet" href="https://cesium.com/downloads/cesiumjs/releases/1.117/Build/Cesium/Widgets/widgets.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            font-family: 'Lato', sans-serif;
+            /*font-family: 'Lato', sans-serif;*/
+            font-family: "Poppins", --system-ui, sans-serif;
         }
         header {
             background-color: #f0f0f0;
@@ -62,12 +66,13 @@
         main {
             padding: 20px;
             text-align: center;
+            background-image: url("./background.jpg");
         }
         #infoContainer {
             position: relative;
             width: 80%;
             height: 80vh;
-            background-color: #f9f9f9;
+            background-color: #ffebcdab;
             border-radius: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -84,16 +89,17 @@
             justify-content: space-between;
         }
         #infoPanel {
-            width: 45%;
-            padding: 20px;
+            width: 38%;
+            padding: 25px;
             text-align: left;
+            color: black;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         #mapContainer {
-            width: 45%;
-            height: 100%;
+            width: 50%;
+            height: 95%;
             background-color: #e0e0e0;
             border-radius: 20px;
             overflow: hidden;
@@ -109,7 +115,7 @@
             height: 40px;
             border: none;
             border-radius: 50%;
-            background-color: white;
+            background-color: whitesmoke;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
             cursor: pointer;
             margin: 0 10px;
@@ -122,7 +128,6 @@
             height: 100%;
         }
     </style>
-    <script src="https://cesium.com/downloads/cesiumjs/releases/1.117/Build/Cesium/Cesium.js"></script>
 </head>
 <body>
     <header>
@@ -139,7 +144,7 @@
                 </li>
                 <li><a href="#">Reading List</a>
                     <ul>
-                        <li><a href="#">Article 1</a></li>
+                        <li><a href="#">http://www.kstrom.net/isk/stars/startabs.html#hillsmap</a></li>
                         <li><a href="#">Article 2</a></li>
                     </ul>
                 </li>
@@ -153,8 +158,9 @@
         <div id="infoContainer">
             <div id="content">
                 <div id="infoPanel">
-                    <h2>Explanation about Black Hills and the importance</h2>
-                    <p>Black Hills is a sacred area for the Lakota people...</p>
+                    <h2>Pahá Sápa (Black Hills)</h2>
+                    <p>"What is in the stars is on earth and what is on earth is in the stars." 
+                    This idea unites the ceremonial map in the circle of stars, not only with sites in the Black Hills, but with a round of ceremonial actions at sacred sites there, ending with a Sun Dance at the Bear's Lodge (Devil's Tower) June 21 (summer solstice). "As above, so below" that is, what occurs in the stars is mirrored on earth is a very old idea now forgotten by Western culture. It is expressed in Alchemy and the even older idea that humankind and our events are a microcosmic mirror of the macrocosm. </p>
                 </div>
                 <div id="mapContainer">
                     <div id="cesiumContainer"></div>
@@ -166,67 +172,63 @@
             </div>
         </div>
     </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4ZWZiNGI2NS1lMzlmLTRkZmQtYWYwNS1mY2FhZjNkODc5OTIiLCJpZCI6MjE3NjkzLCJpYXQiOjE3MTY2MTQ4MjV9.J1vLuwX4TXsxMNYhcInTYbmu4Thh5EidKp8tyX1NuyY';
+    <script type="module">
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Y2UxNzZkMy0zNzQ0LTRlNDgtOWNiMS0yMTMyMzRkMDNkM2EiLCJpZCI6MjI3MDAwLCJpYXQiOjE3MjA0MTczNDl9.sgA8iXyS8xJ8GKaarEABWdW7wuHhL6Jp4Yvo0UUqiNc';
 
-            const viewer = new Cesium.Viewer('cesiumContainer', {
-                terrainProvider: Cesium.createWorldTerrain(),
-                animation: false,
-                timeline: false
-            });
-
-            viewer.camera.flyTo({
-                destination: Cesium.Cartesian3.fromDegrees(-103.8718, 42.094, 75000),
-                orientation: {
-                    heading: Cesium.Math.toRadians(0.0),
-                    pitch: Cesium.Math.toRadians(-20.0),
-                }
-            });
-
-            Cesium.createOsmBuildingsAsync().then(buildingTileset => {
-                viewer.scene.primitives.add(buildingTileset);
-            }).catch(error => {
-                console.error('Error loading OSM buildings:', error);
-            });
-
-            async function fetchSiteData() {
-                try {
-                    const response = await fetch('http://localhost:3000/sites');
-                    const sites = await response.json();
-
-                    sites.forEach(site => {
-                        viewer.entities.add({
-                            name: site.site_name,
-                            position: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude),
-                            point: {
-                                pixelSize: 10,
-                                color: Cesium.Color.RED,
-                            },
-                            label: {
-                                text: site.site_name,
-                                font: '14pt monospace',
-                                style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-                                outlineWidth: 2,
-                                verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-                                pixelOffset: new Cesium.Cartesian2(0, -20),
-                            },
-                            description: `
-                                <h2>${site.site_name}</h2>
-                                <p>${site.description}</p>
-                                <p><strong>Constellation:</strong> ${site.constellation}</p>
-                                <p><strong>Tags:</strong> ${site.tags}</p>
-                                <img src="${site.image_url}" alt="${site.site_name}" width="200" />
-                            `
-                        });
-                    });
-                } catch (error) {
-                    console.error('Error fetching site data:', error);
-                }
-            }
-
-            fetchSiteData();
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            terrainProvider: Cesium.createWorldTerrain(),
         });
+
+        viewer.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(-103.8718, 42.094, 75000),
+            orientation: {
+                heading: Cesium.Math.toRadians(0.0),
+                pitch: Cesium.Math.toRadians(-20.0),
+            }
+        });
+
+        Cesium.createOsmBuildingsAsync().then(buildingTileset => {
+            viewer.scene.primitives.add(buildingTileset);
+        }).catch(error => {
+            console.error('Error loading OSM buildings:', error);
+        });
+
+        async function fetchSiteData() {
+            try {
+                const response = await fetch('http://localhost:3000/sites');
+                const sites = await response.json();
+
+                sites.forEach(site => {
+                    viewer.entities.add({
+                        name: site.site_name,
+                        position: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude),
+                        point: {
+                            pixelSize: 10,
+                            color: Cesium.Color.RED,
+                        },
+                        label: {
+                            text: site.site_name,
+                            font: '14pt monospace',
+                            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                            outlineWidth: 2,
+                            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                            pixelOffset: new Cesium.Cartesian2(0, -20),
+                        },
+                        description: `
+                            <h2>${site.site_name}</h2>
+                            <p>${site.description}</p>
+                            <p><strong>Constellation:</strong> ${site.constellation}</p>
+                            <p><strong>Tags:</strong> ${site.tags}</p>
+                            <img src="${site.image_url}" alt="${site.site_name}" width="200" />
+                        `
+                    });
+                });
+            } catch (error) {
+                console.error('Error fetching site data:', error);
+            }
+        }
+
+        fetchSiteData();
     </script>
 </body>
 </html>
