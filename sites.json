@@ -1,0 +1,68 @@
+[
+  {
+    "id": 0,
+    "site_name": "Pahá Sápa (Black Hills)",
+    "latitude": 42.094,
+    "longitude": -103.8718,
+    "constellation": "some constellation",
+    "description": null,
+    "tags": null,
+    "image_url": "http://example.com/image.jpg",
+    "heading": 0,
+    "pitch": -20,
+    "altitude": 75000,
+    "descriptions": [
+      "\"What is in the stars is on earth and what is on earth is in the stars.\"<br/>This idea unites the ceremonial map in the circle of stars, not only with sites in the Black Hills, but with a round of ceremonial actions at sacred sites there, ending with a Sun Dance at the Bear's Lodge (Devil's Tower) June 21 (summer solstice). \"As above, so below\" that is, what occurs in the stars is mirrored on earth is a very old idea now forgotten by Western culture. It is expressed in Alchemy and the even older idea that humankind and our events are a microcosmic mirror of the macrocosm."
+    ]
+  },
+  {
+    "id": 2,
+    "site_name": "Bear Lodge",
+    "latitude": 44.590556,
+    "longitude": -104.715278,
+    "constellation": "Castor",
+    "description": "Description",
+    "tags": "tag1,tag2",
+    "image_url": "http://example.com/image.jpg",
+    "heading": 0,
+    "pitch": -10,
+    "altitude": 2000,
+    "descriptions": [
+      "bear lodge desc 1",
+      "bear lodge desc 2"
+    ]
+  },
+  {
+    "id": 4,
+    "site_name": "Harney Peak",
+    "latitude": 43.865847725,
+    "longitude": -103.532431997,
+    "constellation": "Pleiades",
+    "description": "description",
+    "tags": "tag1, tag2",
+    "image_url": "http://example.com/harney_peak.jpg",
+    "heading": 0,
+    "pitch": -20,
+    "altitude": 3000,
+    "descriptions": [
+      "harney peak desc 1",
+      "harney peak desc 2"
+    ]
+  },
+  {
+    "id": 999,
+    "site_name": "Last slide",
+    "latitude": 42.094,
+    "longitude": -103.8718,
+    "constellation": "some constellation",
+    "description": null,
+    "tags": null,
+    "image_url": "http://example.com/image.jpg",
+    "heading": 0,
+    "pitch": -20,
+    "altitude": 75000,
+    "descriptions": [
+      "last description bye bye"
+    ]
+  }
+]
