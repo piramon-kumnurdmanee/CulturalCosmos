@@ -8,14 +8,25 @@
     <script src="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Cesium.js"></script>
     <link href="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
     <style>
+<<<<<<< HEAD
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
+=======
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+</style>
+    <style>
+>>>>>>> f1a87ab65f37cd9cb2be7732a06363be23d169ec
         body, html {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
+<<<<<<< HEAD
             font-family: "Poppins", sans-serif;
+=======
+            /*font-family: 'Lato', sans-serif;*/
+            font-family: "Poppins", --system-ui, sans-serif;
+>>>>>>> f1a87ab65f37cd9cb2be7732a06363be23d169ec
         }
         header {
             background-color: #f0f0f0;
@@ -156,7 +167,13 @@
         <div id="infoContainer">
             <div id="content">
                 <div id="infoPanel">
+<<<<<<< HEAD
                     <p id="siteDescription"></p>
+=======
+                    <h2>Pahá Sápa (Black Hills)</h2>
+                    <p>"What is in the stars is on earth and what is on earth is in the stars." 
+                    This idea unites the ceremonial map in the circle of stars, not only with sites in the Black Hills, but with a round of ceremonial actions at sacred sites there, ending with a Sun Dance at the Bear's Lodge (Devil's Tower) June 21 (summer solstice). "As above, so below" that is, what occurs in the stars is mirrored on earth is a very old idea now forgotten by Western culture. It is expressed in Alchemy and the even older idea that humankind and our events are a microcosmic mirror of the macrocosm. </p>
+>>>>>>> f1a87ab65f37cd9cb2be7732a06363be23d169ec
                 </div>
                 <div id="mapContainer">
                     <div id="cesiumContainer"></div>
@@ -169,6 +186,7 @@
         </div>
     </main>
     <script type="module">
+<<<<<<< HEAD
         Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Y2UxNzZkMy0zNzQ0LTRlNDgtOWNiMS0yMTMyMzRkMDNkM2EiLCJpZCI6MjI3MDAwLCJpYXQiOjE3MjA0MTczNDl9.sgA8iXyS8xJ8GKaarEABWdW7wuHhL6Jp4Yvo0UUqiNc';
 
         const viewer = new Cesium.Viewer('cesiumContainer', {
@@ -275,6 +293,64 @@
         });
 
         updateInfoPanel();
+=======
+        Cesium.Ion.defaultAccessToken = 'YourToken';
+
+        const viewer = new Cesium.Viewer('cesiumContainer', {
+            terrainProvider: Cesium.createWorldTerrain(),
+        });
+
+        viewer.camera.flyTo({
+            destination: Cesium.Cartesian3.fromDegrees(-103.8718, 42.094, 75000),
+            orientation: {
+                heading: Cesium.Math.toRadians(0.0),
+                pitch: Cesium.Math.toRadians(-20.0),
+            }
+        });
+
+        Cesium.createOsmBuildingsAsync().then(buildingTileset => {
+            viewer.scene.primitives.add(buildingTileset);
+        }).catch(error => {
+            console.error('Error loading OSM buildings:', error);
+        });
+
+        async function fetchSiteData() {
+            try {
+                const response = await fetch('http://localhost:3000/sites');
+                const sites = await response.json();
+
+                sites.forEach(site => {
+                    viewer.entities.add({
+                        name: site.site_name,
+                        position: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude),
+                        point: {
+                            pixelSize: 10,
+                            color: Cesium.Color.RED,
+                        },
+                        label: {
+                            text: site.site_name,
+                            font: '14pt monospace',
+                            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+                            outlineWidth: 2,
+                            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+                            pixelOffset: new Cesium.Cartesian2(0, -20),
+                        },
+                        description: `
+                            <h2>${site.site_name}</h2>
+                            <p>${site.description}</p>
+                            <p><strong>Constellation:</strong> ${site.constellation}</p>
+                            <p><strong>Tags:</strong> ${site.tags}</p>
+                            <img src="${site.image_url}" alt="${site.site_name}" width="200" />
+                        `
+                    });
+                });
+            } catch (error) {
+                console.error('Error fetching site data:', error);
+            }
+        }
+
+        fetchSiteData();
+>>>>>>> f1a87ab65f37cd9cb2be7732a06363be23d169ec
     </script>
 </body>
 </html>
