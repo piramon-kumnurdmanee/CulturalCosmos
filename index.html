@@ -156,9 +156,7 @@
         <div id="infoContainer">
             <div id="content">
                 <div id="infoPanel">
-                    <h2>Pahá Sápa (Black Hills)</h2>
-                    <p id="siteDescription">"What is in the stars is on earth and what is on earth is in the stars." 
-                    This idea unites the ceremonial map in the circle of stars, not only with sites in the Black Hills, but with a round of ceremonial actions at sacred sites there, ending with a Sun Dance at the Bear's Lodge (Devil's Tower) June 21 (summer solstice). "As above, so below" that is, what occurs in the stars is mirrored on earth is a very old idea now forgotten by Western culture. It is expressed in Alchemy and the even older idea that humankind and our events are a microcosmic mirror of the macrocosm. </p>
+                    <p id="siteDescription"></p>
                 </div>
                 <div id="mapContainer">
                     <div id="cesiumContainer"></div>
@@ -187,13 +185,15 @@
         viewer.scene.backgroundColor = Cesium.Color.BLACK;
         viewer.scene.skyBox.show = true;
 
-        let siteIndex = 0;
+        let siteIndex = 0, prevSiteIndex = -1;
         let descriptionIndex = 0;
 
-        const sites = await (await fetch('http://localhost:3000/sites')).json();
+        const sites = await (await fetch('./sites.json')).json();
         console.log('result',sites)
 
-        sites.forEach((site, index) => {
+        sites
+            .slice(1, -1)
+            .forEach((site, index) => {
             const entity = viewer.entities.add({
                 name: site.site_name,
                 position: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude, site.altitude),
@@ -211,13 +211,13 @@
                     pixelOffset: new Cesium.Cartesian2(0, -20),
                     heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
                 },
-                description: `
-                    <h2>${site.site_name}</h2>
-                    <p>${site.description}</p>
-                    <p><strong>Celestial Body:</strong> ${site.celestial_body}</p>
-                    <p><strong>Tags:</strong> ${site.tags}</p>
-                    <img src="${site.image_url}" alt="${site.site_name}" width="200" />
-                `
+                // description: `
+                //     <h2>${site.site_name}</h2>
+                //     <p>${site.description}</p>
+                //     <p><strong>Celestial Body:</strong> ${site.celestial_body}</p>
+                //     <p><strong>Tags:</strong> ${site.tags}</p>
+                //     <img src="${site.image_url}" alt="${site.site_name}" width="200" />
+                // `
             });
         });
 
@@ -234,20 +234,20 @@
                 <!-- <p><strong>Tags:</strong> ${site.tags}</p> -->
                 <img src="${site.image_url}" alt="${site.site_name}" width="200" />
             `;
-            viewer.camera.flyTo({
-                destination: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude-0.02, site.altitude),
-                orientation: {
-                    heading: Cesium.Math.toRadians(site.heading || 0),
-                    pitch: Cesium.Math.toRadians(site.pitch || -20),
-                }
-            });
-            console.log(siteIndex, descriptionIndex)
-            console.log(site.longitude, site.latitude)
+            if (prevSiteIndex !== siteIndex)
+                viewer.camera.flyTo({
+                    destination: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude-0.02, site.altitude),
+                    orientation: {
+                        heading: Cesium.Math.toRadians(site.heading || 0),
+                        pitch: Cesium.Math.toRadians(site.pitch || -20),
+                    }
+                });
+            prevSiteIndex = siteIndex;
         }
 
         document.getElementById('prevSlide').addEventListener('click', function() {
             // currentIndex = (currentIndex - 1 + sites.length) % sites.length;
-            if (descriptionIndex === 0) {
+            if (descriptionIndex <= 0) {
                 if (siteIndex === 0) return;
                 siteIndex--;
                 descriptionIndex = sites[siteIndex].descriptions.length;
@@ -266,12 +266,13 @@
             updateInfoPanel();
         });
 
-        // viewer.selectedEntityChanged.addEventListener(function(entity) {
-        //     if (entity) {
-        //         const index = entity.id;
-        //         updateInfoPanel(index);
-        //     }
-        // });
+        viewer.selectedEntityChanged.addEventListener(function(entity) {
+            if (entity) {
+                const index = sites.findIndex(site => site.site_name === entity.name);
+                siteIndex = index; descriptionIndex = 0;
+                updateInfoPanel();
+            }
+        });
 
         updateInfoPanel();
     </script>
