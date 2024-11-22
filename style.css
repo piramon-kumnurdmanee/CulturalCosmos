@@ -16,6 +16,11 @@ header {
   align-items: center;
 }
 
+header a {
+  text-decoration: none;
+  color: black;
+}
+
 header nav ul {
   list-style: none;
   display: flex;
@@ -62,7 +67,8 @@ header nav ul li ul li a {
 main {
   padding: 20px;
   text-align: center;
-  background-image: url("./background.jpg");
+  /* background-image: url("./background.jpg"); */
+  background-color: black;
 }
 
 #infoContainer {
