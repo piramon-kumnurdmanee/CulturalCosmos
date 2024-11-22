@@ -49,6 +49,7 @@ function updateInfoPanel() {
                 <!-- <p><strong>Celestial Body:</strong> ${site.celestial_body}</p> -->
                 <!-- <p><strong>Tags:</strong> ${site.tags}</p> -->
                 <img src="${site.image_url}" alt="" width="200" />
+                <p>${site.image_desc || ""}</p>
             `;
   if (prevSiteIndex !== siteIndex)
     viewer.camera.flyTo({
