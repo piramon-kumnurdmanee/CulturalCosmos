@@ -1,0 +1,133 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", --system-ui, sans-serif;
+}
+
+header {
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+  position: relative;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+header nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 8px;
+}
+
+header nav ul li:hover ul {
+  display: block;
+}
+
+header nav ul li ul li {
+  padding: 10px;
+}
+
+header nav ul li ul li a {
+  color: #333;
+}
+
+main {
+  padding: 20px;
+  text-align: center;
+  background-image: url("./background.jpg");
+}
+
+#infoContainer {
+  position: relative;
+  width: 80%;
+  height: 80vh;
+  background-color: #ffebcdab;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#content {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+
+#infoPanel {
+  width: 38%;
+  padding: 25px;
+  text-align: left;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#mapContainer {
+  width: 50%;
+  height: 95%;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#mapControls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#mapControls button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: whitesmoke;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+#mapControls button:focus {
+  outline: none;
+}
+
+#cesiumContainer {
+  width: 100%;
+  height: 100%;
+}
