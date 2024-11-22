@@ -35,13 +35,6 @@ sites
         pixelOffset: new Cesium.Cartesian2(0, -20),
         heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
       },
-      // description: `
-      //     <h2>${site.site_name}</h2>
-      //     <p>${site.description}</p>
-      //     <p><strong>Celestial Body:</strong> ${site.celestial_body}</p>
-      //     <p><strong>Tags:</strong> ${site.tags}</p>
-      //     <img src="${site.image_url}" alt="${site.site_name}" width="200" />
-      // `
     });
   });
 function updateInfoPanel() {
@@ -52,7 +45,7 @@ function updateInfoPanel() {
   const site = sites[siteIndex];
   document.getElementById('siteDescription').innerHTML = `
                 <h2>${site.site_name}</h2>
-                <p>${site.descriptions[descriptionIndex]}</p>
+                <p>${site.descriptions[descriptionIndex] || ""}</p>
                 <!-- <p><strong>Celestial Body:</strong> ${site.celestial_body}</p> -->
                 <!-- <p><strong>Tags:</strong> ${site.tags}</p> -->
                 <img src="${site.image_url}" alt="" width="200" />
