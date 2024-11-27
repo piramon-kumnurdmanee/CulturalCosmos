@@ -1,0 +1,87 @@
+[
+  {
+    "id": 0,
+    "site_name": "Cultural Cosmos",
+    "latitude":  "",
+    "longitude": "",
+    "constellation": "",
+    "description": null,
+    "tags": null,
+    "image_url": "http://example.com/image.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 80000,
+    "descriptions": [ "Land, Life, and Sky"]
+  },
+  {
+    "id": 1,
+    "site_name": "Stonehenge",
+    "latitude": 51.1789,
+    "longitude": -1.8262,
+    "constellation": "Sun",
+    "description": "A prehistoric megalithic structure on Salisbury Plain in Wiltshire, England",
+    "tags": "solstice",
+    "image_url": "./img/stonehenge.jpg",
+    "image_desc": ["The earliest-known realistic painting of Stonehenge, drawn on site with watercolours by Lucas de Heere between 1573 and 1575"],
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 1000,
+    "descriptions": ["A prehistoric megalithic structure on Salisbury Plain in Wiltshire, England"],
+    "notes" : [    "The Lakota winter camp near Pine Ridge provided shelter during the harsh winter months. Families gathered here to rest and prepare for the coming year.",
+        "Winter was a sacred time for storytelling, with elders passing down wisdom and traditions to ensure the survival of Lakota culture. The North Star served as a spiritual guide during this reflective period.",
+        "The winter camp symbolized harmony and resilience, with the Lakota maintaining their connection to the land and cosmos even in the harshest seasons."
+    ]
+  },
+  {
+    "id": 2,
+    "site_name": "Black Hills, South Dakota",
+    "latitude": 42.2,
+    "longitude": -103.8618,
+    "showPoint": false,
+    "constellation": "some constellation",
+    "description": null,
+    "tags": null,
+    "image_url": "http://example.com/image.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 80000,
+    "descriptions": ["As above, so below"]
+  },
+  {
+    "id": 3,
+    "site_name": "Mount Rushmore",
+    "latitude": 43.8803,
+    "longitude": -103.456,
+    "constellation": "",
+    "description": "Originally known as Six Grandfathers, this sacred mountain holds profound spiritual significance for the Lakota people.",
+    "tags": "sacred, Six Grandfathers, Black Hills, Lakota, directions",
+    "image_url": "./img/mount-rushmore.jpg",
+    "heading": 0,
+    "pitch": -10,
+    "altitude": 2000,
+    "descriptions": ["Long before it became Mount Rushmore, this mountain was known to the Lakota as Six Grandfathers (Tȟuŋkášila Šákpe). <a href=\"https://www.theguardian.com/environment/2021/jul/03/mount-rushmore-south-dakota-indigenous-americans\">Read more...</a>"],
+    "notes" : [ "Long before it became Mount Rushmore, this mountain was known to the Lakota as Six Grandfathers (Tȟuŋkášila Šákpe). Representing the six sacred directions—north, south, east, west, above, and below—it symbolized balance, harmony, and the deep connection between the land and cosmos. As part of the sacred Black Hills, Six Grandfathers was a place of spiritual significance, anchoring the Lakota worldview in unity with nature and the universe.",
+        "The mountain was a key part of the Lakota ceremonial landscape, rooted in their deep connection to the Black Hills (*Pahá Sápa*), which they consider the heart of their universe.",
+        "The name Six Grandfathers reflects a spiritual geography that aligns the cosmos with the land. The site is a reminder of the Lakota’s enduring relationship with the Black Hills, despite the changes brought by history."
+    ]
+  },
+  {
+    "id": 4,
+    "site_name": "Mount Rushmore",
+    "latitude": null,
+    "longitude": null,
+    "constellation": null,
+    "description": "Originally known as Six Grandfathers, this sacred mountain holds profound spiritual significance for the Lakota people.",
+    "tags": "last slide",
+    "image_url": "./img/mount-rushmore.jpg",
+    "heading": 0,
+    "pitch": -10,
+    "altitude": 2000,
+    "descriptions": ["Sky is for all."],
+    "notes" : [ "Long before it became Mount Rushmore, this mountain was known to the Lakota as Six Grandfathers (Tȟuŋkášila Šákpe). Representing the six sacred directions—north, south, east, west, above, and below—it symbolized balance, harmony, and the deep connection between the land and cosmos. As part of the sacred Black Hills, Six Grandfathers was a place of spiritual significance, anchoring the Lakota worldview in unity with nature and the universe.",
+        "The mountain was a key part of the Lakota ceremonial landscape, rooted in their deep connection to the Black Hills (*Pahá Sápa*), which they consider the heart of their universe.",
+        "The name Six Grandfathers reflects a spiritual geography that aligns the cosmos with the land. The site is a reminder of the Lakota’s enduring relationship with the Black Hills, despite the changes brought by history."
+    ]
+  }
+
+]
