@@ -17,6 +17,7 @@ const sites = await(await fetch('./sites.json')).json();
 console.log('result', sites)
 sites
   .slice(1, -1)
+  .filter(site => site.showPoint === undefined || site.showPoint === true)
   .forEach((site, index) => {
     const entity = viewer.entities.add({
       name: site.site_name,
@@ -90,10 +91,11 @@ viewer.selectedEntityChanged.addEventListener(function(entity) {
 updateInfoPanel();
 
 viewer.camera.flyTo({
-  destination: Cesium.Cartesian3.fromDegrees(-103.8718, 42.094, 75000),
+  destination: Cesium.Cartesian3.fromDegrees(0, 0, 40000000), // Adjust altitude to display the whole Earth
   orientation: {
     heading: Cesium.Math.toRadians(0.0),
-    pitch: Cesium.Math.toRadians(-20.0),
+    pitch: Cesium.Math.toRadians(-90.0), // Straight down
+    roll: 0.0
   }
 });
 
