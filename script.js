@@ -29,9 +29,8 @@ const updateList = (tag) => {
       site.tags.includes(tag),
   );
   console.log(sites);
-  // console.log(viewer.entities.values);
   viewer.entities.removeAll();
-  allSites
+  sites
     .slice(1, -1)
     .filter((site) => site.showPoint === undefined || site.showPoint === true)
     .forEach((site, index) => {
