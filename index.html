@@ -1,50 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ethno/Archaeo Astronomy Map</title>
     <script src="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Cesium.js"></script>
-    <link href="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <link
+      href="https://cesium.com/downloads/cesiumjs/releases/1.84/Build/Cesium/Widgets/widgets.css"
+      rel="stylesheet"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
-
-</style>
-    <link href="./style.css" rel="stylesheet">
-</head>
-<body>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap");
+    </style>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
     <header>
-        <div class="header-title">
-            <a href="./">
-                <h1>Ethno/Archaeoastronomy Map</h1>
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="./instruction">Instruction</a></li>
-                <li><a href="./reading-list">Reading List</a></li>
-                <li><a href="./contributors">Contributors</a></li>
-                <li><a href="https://forms.gle/kQQ9ZBDWixyLo2km7">Submit Feedback</a></li>
-            </ul>
-        </nav>
+      <div class="header-title">
+        <a href="./">
+          <h1>Ethno/Archaeoastronomy Map</h1>
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./instruction">Instruction</a></li>
+          <li><a href="./reading-list">Reading List</a></li>
+          <li><a href="./contributors">Contributors</a></li>
+          <li>
+            <a href="https://forms.gle/kQQ9ZBDWixyLo2km7">Submit Feedback</a>
+          </li>
+        </ul>
+      </nav>
+      <div id="dropdown-box">
+        <select id="kind">
+          <option value="all">-- Select --</option>
+          <option value="sites">Archeoastronomical Sites</option>
+          <option value="stories">Star Stories</option>
+          <option value="indig">Telescope on Indigenous Land</option>
+          <option value="records">Astronomical Records</option>
+        </select>
+        <script>
+          document.querySelector("#kind").addEventListener("change", (e) => {
+            const kind = e.target.value;
+            // TODO: some filter action
+          });
+        </script>
+      </div>
     </header>
     <main>
-        <div id="infoContainer">
-            <div id="content">
-                <div id="mapContainer">
-                    <div id="cesiumContainer"></div>
-                </div>
-                <div id="infoPanel">
-                    <p id="siteDescription"></p>
-                </div>
-            </div>
-            <div id="mapControls">
-                <button id="prevSlide">&#8592;</button>
-                <button id="nextSlide">&#8594;</button>
-            </div>
+      <div id="infoContainer">
+        <div id="content">
+          <div id="mapContainer">
+            <div id="cesiumContainer"></div>
+          </div>
+          <div id="infoPanel">
+            <p id="siteDescription"></p>
+          </div>
         </div>
+        <div id="mapControls">
+          <button id="prevSlide">&#8592;</button>
+          <button id="nextSlide">&#8594;</button>
+        </div>
+      </div>
     </main>
     <script type="module" src="./script.js"></script>
-</body>
+  </body>
 </html>
