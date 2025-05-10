@@ -32,21 +32,6 @@
           </li>
         </ul>
       </nav>
-      <div id="dropdown-box">
-        <select id="kind">
-          <option value="all">-- Select --</option>
-          <option value="sites">Archeoastronomical Sites</option>
-          <option value="stories">Star Stories</option>
-          <option value="indig">Telescope on Indigenous Land</option>
-          <option value="records">Astronomical Records</option>
-        </select>
-        <script>
-          document.querySelector("#kind").addEventListener("change", (e) => {
-            const kind = e.target.value;
-            // TODO: some filter action
-          });
-        </script>
-      </div>
     </header>
     <main>
       <div id="infoContainer">
@@ -62,6 +47,57 @@
           <button id="prevSlide">&#8592;</button>
           <button id="nextSlide">&#8594;</button>
         </div>
+      </div>
+      <div id="dropdown-box">
+        <select id="kind">
+          <option value="all">-- Select --</option>
+          <option value="sites">Archeoastronomical Sites</option>
+          <option value="stories">Star Stories</option>
+          <option value="indig">Telescope on Indigenous Land</option>
+          <option value="records">Astronomical Records</option>
+        </select>
+        <fieldset class="kind-radio" id="subkind"></fieldset>
+        <script>
+          document.querySelector("#kind").addEventListener("change", (e) => {
+            const kind = e.target.value;
+            const subkinds = {
+              sites: [
+                {
+                  name: "Telescope",
+                  value: "telescope",
+                },
+              ],
+              stories: [
+                {
+                  name: "Stories 1",
+                  value: "stories-1",
+                },
+                {
+                  name: "Stories 2",
+                  value: "stories-2",
+                },
+              ],
+              indig: [
+                {
+                  name: "Sun Temple",
+                  value: "sun temple",
+                },
+              ],
+              records: [
+                {
+                  name: "Records 1",
+                  value: "record-1",
+                },
+              ],
+            };
+            document.querySelector("#subkind").innerHTML = subkinds[kind]
+              .map(
+                (subkind) =>
+                  `<input type="radio" name="subkind" value="${subkind.value}">${subkind.name}</input>`,
+              )
+              .join("<br/>");
+          });
+        </script>
       </div>
     </main>
     <script type="module" src="./script.js"></script>

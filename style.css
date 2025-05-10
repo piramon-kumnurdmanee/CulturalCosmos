@@ -69,11 +69,14 @@ main {
   text-align: center;
   /* background-image: url("./background.jpg"); */
   background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 2rem;
 }
 
 #infoContainer {
   position: relative;
-  width: 80%;
+  /* width: 80%; */
   height: 80vh;
   background-color: #ffebcdab;
   border-radius: 20px;
@@ -81,7 +84,7 @@ main {
   overflow: hidden;
   padding: 20px;
   box-sizing: border-box;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -142,8 +145,11 @@ header{
   position: relative;
 }
 #dropdown-box {
-position: absolute;
-  bottom: -4rem;
-  right: 4rem;
-  z-index: 1;
+  select {
+    margin-bottom: 1rem;
+  }
+  color: white;
+  fieldset {
+    border: none;
+  }
 }

@@ -9,8 +9,8 @@
     "tags": [],
     "image_url": "http://example.com/image.jpg",
     "heading": 0,
-    "pitch": -30,
-    "altitude": 80000,
+    "pitch": null,
+    "altitude": null,
     "descriptions": [ "Sky, Land, and Life"]
   },
   {
@@ -245,7 +245,7 @@
     "image_url": null,
     "heading": 0,
     "pitch": -90,
-    "altitude": 15000000,
+    "altitude": 10000000,
     "descriptions": ["As we gaze upward, let us remember the connections between the sky, land, and life—and our responsibility to protect them for generations to come."]
   }
 

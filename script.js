@@ -8,6 +8,7 @@ const viewer = new Cesium.Viewer("cesiumContainer", {
   animation: false,
   creditContainer: document.createElement("div"),
   shadows: true,
+  requestRenderMode: true,
 });
 viewer.scene.globe.enableLighting = true;
 viewer.scene.backgroundColor = Cesium.Color.BLACK;
@@ -15,35 +16,59 @@ viewer.scene.skyBox.show = true;
 let siteIndex = 0,
   prevSiteIndex = -1;
 let descriptionIndex = 0;
-const sites = await (await fetch("./sites.json")).json();
-console.log("result", sites);
-sites
-  .slice(1, -1)
-  .filter((site) => site.showPoint === undefined || site.showPoint === true)
-  .forEach((site, index) => {
-    const entity = viewer.entities.add({
-      name: site.site_name,
-      position: Cesium.Cartesian3.fromDegrees(
-        site.longitude,
-        site.latitude,
-        site.altitude,
-      ),
-      point: {
-        pixelSize: 10,
-        color: Cesium.Color.RED,
-        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
-      },
-      label: {
-        text: site.site_name,
-        font: "14pt monospace",
-        style: Cesium.LabelStyle.FILL_AND_OUTLINE,
-        outlineWidth: 2,
-        verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
-        pixelOffset: new Cesium.Cartesian2(0, -20),
-        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
-      },
+const allSites = await (await fetch("./sites.json")).json();
+console.log("result", allSites);
+let sites = [];
+const updateList = (tag) => {
+  console.log("tag", tag);
+  sites = allSites.filter(
+    (site, index) =>
+      index === 0 ||
+      index === allSites.length - 1 ||
+      !tag ||
+      site.tags.includes(tag),
+  );
+  console.log(sites);
+  // console.log(viewer.entities.values);
+  viewer.entities.removeAll();
+  allSites
+    .slice(1, -1)
+    .filter((site) => site.showPoint === undefined || site.showPoint === true)
+    .forEach((site, index) => {
+      const entity = viewer.entities.add({
+        name: site.site_name,
+        position: Cesium.Cartesian3.fromDegrees(
+          site.longitude,
+          site.latitude,
+          site.altitude,
+        ),
+        point: {
+          pixelSize: 10,
+          color: Cesium.Color.RED,
+          heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+        },
+        label: {
+          text: site.site_name,
+          font: "14pt monospace",
+          style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+          outlineWidth: 2,
+          verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+          pixelOffset: new Cesium.Cartesian2(0, -20),
+          heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
+        },
+      });
     });
-  });
+  siteIndex = 0;
+  prevSiteIndex = -1;
+  descriptionIndex = 0;
+  viewer.scene.render();
+  updateInfoPanel();
+};
+document.querySelector("#subkind").addEventListener("change", (e) => {
+  updateList(e.target.value);
+});
+updateList(null);
+
 function updateInfoPanel() {
   // if (index < 0 || index >= sites.length) {
   //     console.error('Invalid index for updateInfoPanel:', index);
@@ -63,11 +88,11 @@ function updateInfoPanel() {
       destination: Cesium.Cartesian3.fromDegrees(
         site.longitude,
         site.latitude - 0.02,
-        site.altitude,
+        site.altitude || 10_000_000,
       ),
       orientation: {
         heading: Cesium.Math.toRadians(site.heading || 0),
-        pitch: Cesium.Math.toRadians(site.pitch || -20),
+        pitch: Cesium.Math.toRadians(site.pitch || -90),
       },
     });
   prevSiteIndex = siteIndex;
