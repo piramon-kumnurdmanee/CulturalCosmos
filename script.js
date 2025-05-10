@@ -1,40 +1,46 @@
-Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Y2UxNzZkMy0zNzQ0LTRlNDgtOWNiMS0yMTMyMzRkMDNkM2EiLCJpZCI6MjI3MDAwLCJpYXQiOjE3MjA0MTczNDl9.sgA8iXyS8xJ8GKaarEABWdW7wuHhL6Jp4Yvo0UUqiNc';
-const viewer = new Cesium.Viewer('cesiumContainer', {
+Cesium.Ion.defaultAccessToken =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI4Y2UxNzZkMy0zNzQ0LTRlNDgtOWNiMS0yMTMyMzRkMDNkM2EiLCJpZCI6MjI3MDAwLCJpYXQiOjE3MjA0MTczNDl9.sgA8iXyS8xJ8GKaarEABWdW7wuHhL6Jp4Yvo0UUqiNc";
+const viewer = new Cesium.Viewer("cesiumContainer", {
   terrainProvider: Cesium.createWorldTerrain(),
   skyAtmosphere: false,
   sceneModePicker: false,
   timeline: true,
   animation: false,
-  creditContainer: document.createElement('div'),
-  shadows: true
+  creditContainer: document.createElement("div"),
+  shadows: true,
 });
 viewer.scene.globe.enableLighting = true;
 viewer.scene.backgroundColor = Cesium.Color.BLACK;
 viewer.scene.skyBox.show = true;
-let siteIndex = 0, prevSiteIndex = -1;
+let siteIndex = 0,
+  prevSiteIndex = -1;
 let descriptionIndex = 0;
-const sites = await(await fetch('./sites.json')).json();
-console.log('result', sites)
+const sites = await (await fetch("./sites.json")).json();
+console.log("result", sites);
 sites
   .slice(1, -1)
-  .filter(site => site.showPoint === undefined || site.showPoint === true)
+  .filter((site) => site.showPoint === undefined || site.showPoint === true)
   .forEach((site, index) => {
     const entity = viewer.entities.add({
       name: site.site_name,
-      position: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude, site.altitude),
+      position: Cesium.Cartesian3.fromDegrees(
+        site.longitude,
+        site.latitude,
+        site.altitude,
+      ),
       point: {
         pixelSize: 10,
         color: Cesium.Color.RED,
-        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
       },
       label: {
         text: site.site_name,
-        font: '14pt monospace',
+        font: "14pt monospace",
         style: Cesium.LabelStyle.FILL_AND_OUTLINE,
         outlineWidth: 2,
         verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
         pixelOffset: new Cesium.Cartesian2(0, -20),
-        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND
+        heightReference: Cesium.HeightReference.CLAMP_TO_GROUND,
       },
     });
   });
@@ -44,25 +50,29 @@ function updateInfoPanel() {
   //     return;
   // }
   const site = sites[siteIndex];
-  document.getElementById('siteDescription').innerHTML = `
+  document.getElementById("siteDescription").innerHTML = `
                 <h2>${site.site_name}</h2>
                 <p>${site.descriptions[descriptionIndex] || ""}</p>
                 <!-- <p><strong>Celestial Body:</strong> ${site.celestial_body}</p> -->
-                <!-- <p><strong>Tags:</strong> ${site.tags}</p> -->
+                <!-- <p><strong>Tags:</strong> ${site.tags.join(", ")}</p> -->
                 <img src="${site.image_url}" alt="" width="200" />
                 <p>${site.image_desc || ""}</p>
             `;
   if (prevSiteIndex !== siteIndex)
     viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(site.longitude, site.latitude - 0.02, site.altitude),
+      destination: Cesium.Cartesian3.fromDegrees(
+        site.longitude,
+        site.latitude - 0.02,
+        site.altitude,
+      ),
       orientation: {
         heading: Cesium.Math.toRadians(site.heading || 0),
         pitch: Cesium.Math.toRadians(site.pitch || -20),
-      }
+      },
     });
   prevSiteIndex = siteIndex;
 }
-document.getElementById('prevSlide').addEventListener('click', function() {
+document.getElementById("prevSlide").addEventListener("click", function () {
   // currentIndex = (currentIndex - 1 + sites.length) % sites.length;
   if (descriptionIndex <= 0) {
     if (siteIndex === 0) return;
@@ -72,7 +82,7 @@ document.getElementById('prevSlide').addEventListener('click', function() {
   descriptionIndex--;
   updateInfoPanel();
 });
-document.getElementById('nextSlide').addEventListener('click', function() {
+document.getElementById("nextSlide").addEventListener("click", function () {
   descriptionIndex++;
   if (descriptionIndex >= sites[siteIndex].descriptions.length) {
     if (siteIndex === sites.length - 1) return;
@@ -81,10 +91,11 @@ document.getElementById('nextSlide').addEventListener('click', function() {
   }
   updateInfoPanel();
 });
-viewer.selectedEntityChanged.addEventListener(function(entity) {
+viewer.selectedEntityChanged.addEventListener(function (entity) {
   if (entity) {
-    const index = sites.findIndex(site => site.site_name === entity.name);
-    siteIndex = index; descriptionIndex = 0;
+    const index = sites.findIndex((site) => site.site_name === entity.name);
+    siteIndex = index;
+    descriptionIndex = 0;
     updateInfoPanel();
   }
 });
@@ -95,8 +106,8 @@ viewer.camera.flyTo({
   orientation: {
     heading: Cesium.Math.toRadians(0.0),
     pitch: Cesium.Math.toRadians(-90.0), // Straight down
-    roll: 0.0
-  }
+    roll: 0.0,
+  },
 });
 
 // Cesium.createOsmBuildingsAsync().then(buildingTileset => {
