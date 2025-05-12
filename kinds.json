@@ -1,0 +1,61 @@
+{
+  "sites": {
+    "title": "Archeoastronomical Sites",
+    "descriptions": ["some description"],
+    "subkinds":[
+      {
+        "name": "Sun Temple",
+        "value": "sun temple",
+        "descriptions": ["some description"]
+      }
+    ]
+  },
+  "stories": {
+    "title": "Star Stories",
+    "descriptions": ["some description"],
+    "subkinds": [
+      {
+        "name": "Stories 1",
+        "value": "stories-1",
+        "descriptions": ["some description"]
+      },
+      {
+        "name": "Stories 2",
+        "value": "stories-2",
+        "descriptions": ["some description"]
+      }
+    ]
+  },
+  "indig": {
+    "title": "Telescope on Indigenous Land",
+    "descriptions": ["some description"],
+    "subkinds":[
+      {
+        "name": "Telescope",
+        "value": "telescope",
+        "descriptions": ["some description"]
+      }
+    ]
+  },
+  "records": {
+    "title": "Astronomical Records",
+    "descriptions": ["some description"],
+    "subkinds":[
+      {
+        "name": "Supernova",
+        "value": "supernova",
+        "descriptions": ["some description"]
+      },
+      {
+        "name": "Eclipse",
+        "value": "eclipse",
+        "descriptions": ["some description"]
+      },
+      {
+        "name": "Comet",
+        "value": "comet",
+        "descriptions": ["some description"]
+      }
+    ]
+  }
+}

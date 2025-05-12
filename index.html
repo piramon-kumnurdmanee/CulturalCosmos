@@ -51,61 +51,9 @@
       <div id="dropdown-box">
         <select id="kind">
           <option value="all">-- Select --</option>
-          <option value="sites">Archeoastronomical Sites</option>
-          <option value="stories">Star Stories</option>
-          <option value="indig">Telescope on Indigenous Land</option>
-          <option value="records">Astronomical Records</option>
         </select>
         <fieldset class="kind-radio" id="subkind"></fieldset>
-        <script>
-          document.querySelector("#kind").addEventListener("change", (e) => {
-            const kind = e.target.value;
-            const subkinds = {
-              sites: [
-                {
-                  name: "Sun Temple",
-                  value: "sun temple",
-                },
-              ],
-              stories: [
-                {
-                  name: "Stories 1",
-                  value: "stories-1",
-                },
-                {
-                  name: "Stories 2",
-                  value: "stories-2",
-                },
-              ],
-              indig: [
-                {
-                  name: "Telescope",
-                  value: "telescope",
-                },
-              ],
-              records: [
-                {
-                  name: "Supernova",
-                  value: "supernova",
-                },
-                {
-                  name: "Eclipse",
-                  value: "eclipse",
-                },
-                {
-                  name: "Comet",
-                  value: "comet",
-                },
-              ],
-            };
-            document.querySelector("#subkind").innerHTML = subkinds[kind]
-              .map(
-                (subkind) =>
-                  `<input type="radio" name="subkind" value="${subkind.value}">${subkind.name}</input>`,
-              )
-              .join("<br/>");
-          });
-        </script>
+        <script></script>
       </div>
     </main>
     <script type="module" src="./script.js"></script>

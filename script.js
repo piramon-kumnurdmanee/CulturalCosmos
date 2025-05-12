@@ -16,19 +16,33 @@ viewer.scene.skyBox.show = true;
 let siteIndex = 0,
   prevSiteIndex = -1;
 let descriptionIndex = 0;
-const allSites = await (await fetch("./sites.json")).json();
-console.log("result", allSites);
+const [allSites, kinds] = await Promise.all(
+  (await Promise.all([fetch("./sites.json"), fetch("./kinds.json")])).map((i) =>
+    i.json(),
+  ),
+);
+// console.log("result", allSites);
 let sites = [];
+let kind = "all",
+  subkind = null;
+
 const updateList = (tag) => {
-  console.log("tag", tag);
+  // console.log("tag", tag);
   sites = allSites.filter(
     (site, index) =>
       index === 0 ||
       index === allSites.length - 1 ||
       !tag ||
       site.tags.includes(tag),
+    // tag
+    // ? site.tags.includes(tag)
+    // : kind === "all"
+    //   ? true
+    //   : new Set(site.tags).intersection(
+    //       new Set(kinds[kind].subkinds.map((sk) => sk.value)),
+    //     ).length,
   );
-  console.log(sites);
+  // console.log(sites);
   viewer.entities.removeAll();
   sites
     .slice(1, -1)
@@ -61,18 +75,9 @@ const updateList = (tag) => {
   prevSiteIndex = -1;
   descriptionIndex = 0;
   viewer.scene.render();
-  updateInfoPanel();
 };
-document.querySelector("#subkind").addEventListener("change", (e) => {
-  updateList(e.target.value);
-});
-updateList(null);
 
 function updateInfoPanel() {
-  // if (index < 0 || index >= sites.length) {
-  //     console.error('Invalid index for updateInfoPanel:', index);
-  //     return;
-  // }
   const site = sites[siteIndex];
   document.getElementById("siteDescription").innerHTML = `
                 <h2>${site.site_name}</h2>
@@ -87,7 +92,7 @@ function updateInfoPanel() {
       destination: Cesium.Cartesian3.fromDegrees(
         site.longitude,
         site.latitude - 0.02,
-        site.altitude || 10_000_000,
+        site.altitude || 40_000_000,
       ),
       orientation: {
         heading: Cesium.Math.toRadians(site.heading || 0),
@@ -96,6 +101,8 @@ function updateInfoPanel() {
     });
   prevSiteIndex = siteIndex;
 }
+
+// hooks
 document.getElementById("prevSlide").addEventListener("click", function () {
   // currentIndex = (currentIndex - 1 + sites.length) % sites.length;
   if (descriptionIndex <= 0) {
@@ -115,6 +122,51 @@ document.getElementById("nextSlide").addEventListener("click", function () {
   }
   updateInfoPanel();
 });
+document.querySelector("#kind").addEventListener("change", (e) => {
+  kind = e.target.value;
+  subkind = null;
+  updateList();
+
+  if (kind !== "all") {
+    sites[0] = {
+      ...sites[0],
+      site_name: kinds[kind].title,
+      descriptions: kinds[kind].descriptions,
+    };
+    document.querySelector("#subkind").innerHTML = kinds[kind].subkinds
+      .map(
+        (subkind) =>
+          `<input type="radio" name="subkind" value="${subkind.value}">${subkind.name}</input>`,
+      )
+      .join("<br/>");
+  } else {
+    sites[0] = allSites[0];
+    document.querySelector("#subkind").innerHTML = "";
+  }
+
+  updateInfoPanel();
+});
+document.querySelector("#subkind").addEventListener("change", (e) => {
+  subkind = kinds[kind].subkinds.find((sk) => sk.value === e.target.value);
+  updateList(e.target.value);
+
+  if (subkind) {
+    sites[0] = {
+      ...sites[0],
+      site_name: subkind.name,
+      descriptions: subkind.descriptions,
+    };
+  } else sites[0] = allSites[0];
+
+  updateInfoPanel();
+});
+
+//init
+document.querySelector("#kind").innerHTML += Object.entries(kinds).map(
+  ([key, kind]) => `<option value="${key}">${kind.title}</option>`,
+);
+console.log(Object.entries(kinds));
+
 viewer.selectedEntityChanged.addEventListener(function (entity) {
   if (entity) {
     const index = sites.findIndex((site) => site.site_name === entity.name);
@@ -123,19 +175,15 @@ viewer.selectedEntityChanged.addEventListener(function (entity) {
     updateInfoPanel();
   }
 });
+updateList(null);
 updateInfoPanel();
+// console.log(kinds);
 
 viewer.camera.flyTo({
-  destination: Cesium.Cartesian3.fromDegrees(0, 0, 40000000), // Adjust altitude to display the whole Earth
+  destination: Cesium.Cartesian3.fromDegrees(0, 0, 40_000_000), // Adjust altitude to display the whole Earth
   orientation: {
     heading: Cesium.Math.toRadians(0.0),
     pitch: Cesium.Math.toRadians(-90.0), // Straight down
     roll: 0.0,
   },
 });
-
-// Cesium.createOsmBuildingsAsync().then(buildingTileset => {
-//     viewer.scene.primitives.add(buildingTileset);
-// }).catch(error => {
-//     console.error('Error loading OSM buildings:', error);
-// });
