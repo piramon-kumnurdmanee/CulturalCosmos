@@ -236,6 +236,432 @@
     "descriptions": ["Robert C. Byrd Green Bank Telescope (GBT)"]
   },
   {
+    "id": 100,
+    "site_name": "Kaifeng, China",
+    "latitude": 34.8021,
+    "longitude": 114.3076,
+    "constellation": "Lupus",
+    "description": "Detailed accounts from the Song Dynasty observing SN 1006 for over three years.",
+    "tags": ["SN 1006", "astronomical record", "supernova"],
+    "descriptions": [
+      "<strong>SN 1006</strong>: Detailed accounts from the Song Dynasty observing SN 1006 for over three years.",
+      "Described as a 'Zhoubo' star with golden-yellow color and pointed rays.",
+      "Recorded in multiple texts including Songshi and Song Huiyao; visible from 1 May 1006, reappearing regularly until 1009."
+    ]
+  },
+  {
+    "id": 101,
+    "site_name": "Kyoto, Japan",
+    "latitude": 35.0116,
+    "longitude": 135.7681,
+    "constellation": "Lupus",
+    "description": "Japanese record describes SN 1006 as bright and scintillating, visible in the southern sky.",
+    "tags": ["SN 1006", "astronomical record", "supernova"],
+    "descriptions": [
+      "<strong>SN 1006</strong>: Japanese record describes SN 1006 as bright and scintillating, visible in the southern sky.",
+      "Recorded in Meigetsuki, compiled by Fujiwara Sadaie.",
+      "Compared to Mars and seen in Qiguan for multiple nights."
+    ]
+  },
+  {
+    "id": 102,
+    "site_name": "Cairo, Egypt",
+    "latitude": 30.0444,
+    "longitude": 31.2357,
+    "constellation": "Scorpio",
+    "description": "Ali ibn Ridwan described SN 1006 as bright as the quarter Moon.",
+    "tags": ["SN 1006", "astronomical record", "supernova"],
+    "descriptions": [
+      "<strong>SN 1006</strong>: Ali ibn Ridwan described SN 1006 as bright as the quarter Moon.",
+      "Said to be 2.5–3× the size of Venus; first visible around 30 April 1006, disappeared by 2 September.",
+      "Provided one of the most detailed early astrological descriptions."
+    ]
+  },
+  {
+    "id": 103,
+    "site_name": "St. Gallen, Switzerland",
+    "latitude": 47.4239,
+    "longitude": 9.3748,
+    "constellation": "Lupus",
+    "description": "European monks observed SN 1006 as a dazzling southern object visible for three months.",
+    "tags": ["SN 1006", "astronomical record", "supernova"],
+    "descriptions": [
+      "<strong>SN 1006</strong>: European monks observed SN 1006 as a dazzling southern object visible for three months.",
+      "Described as 'glittering and dazzling the eyes, causing alarm'.",
+      "Low elevation; visibility occasionally blocked by mountains."
+    ]
+  },
+  {
+    "id": 104,
+    "site_name": "San'a, Yemen",
+    "latitude": 15.3694,
+    "longitude": 44.1910,
+    "constellation": "Lupus",
+    "description": "Yemeni chroniclers described SN 1006 as having rays like the Sun.",
+    "tags": ["SN 1006", "astronomical record", "supernova"],
+    "descriptions": [
+      "<strong>SN 1006</strong>: Yemeni chroniclers described SN 1006 as having rays like the Sun.",
+      "Attributed its brightness to the dark, high-altitude skies of Yemen.",
+      "No precise dates given, but supports extreme brilliance."
+    ]
+  },
+  {
+    "id": 203,
+    "site_name": "Chaco Canyon, New Mexico",
+    "latitude": 36.06,
+    "longitude": -107.96,
+    "constellation": "Taurus",
+    "description": "Possible Indigenous North American record of SN 1054.",
+    "tags": ["SN 1054", "astronomical record", "supernova"],
+    "image_url": "./img/sn1054-chaco.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Petroglyph with crescent Moon and bright star may represent SN 1054.",
+      "Interpretation supported by alignment and dating."
+    ],
+    "notes": [
+      "https://apod.nasa.gov/apod/ap000703.html"
+    ]
+  },
+  {
+    "id": 204,
+    "site_name": "Herrevad Abbey, Denmark",
+    "latitude": 56.0333,
+    "longitude": 13.4833,
+    "constellation": "Cassiopeia",
+    "description": "Observed SN 1572, also known as Tycho's Supernova.",
+    "tags": ["SN 1572", "astronomical record", "supernova"],
+    "image_url": "./img/sn1572-tycho.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed SN 1572, also known as Tycho's Supernova.",
+      "Tycho Brahe's observations challenged the idea of an unchanging cosmos.",
+      "First modern study of a supernova."
+    ],
+    "notes": [
+      "https://www.frontiersin.org/articles/10.3389/fspas.2023.1255481/full"
+    ]
+  },
+  {
+    "id": 205,
+    "site_name": "Beijing, China",
+    "latitude": 39.9042,
+    "longitude": 116.4074,
+    "constellation": "Cassiopeia",
+    "description": "Observed SN 1572 during the Ming Dynasty.",
+    "tags": ["SN 1572", "astronomical record", "supernova"],
+    "image_url": "./img/sn1572-china.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed SN 1572 during the Ming Dynasty.",
+      "Recorded as a guest star in official Chinese astronomical records.",
+      "Noted for its brightness and celestial position."
+    ],
+    "notes": [
+      "https://academic.oup.com/book/8331/chapter/153978434"
+    ]
+  },
+  {
+    "id": 206,
+    "site_name": "Prague, Czech Republic",
+    "latitude": 50.0755,
+    "longitude": 14.4378,
+    "constellation": "Ophiuchus",
+    "description": "Observed SN 1604, also known as Kepler's Supernova.",
+    "tags": ["SN 1604", "astronomical record", "supernova"],
+    "image_url": "./img/sn1604-kepler.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Kepler observed and documented this bright supernova in 1604.",
+      "The last naked-eye supernova in our galaxy."
+    ],
+    "notes": [
+      "https://www.nasa.gov/history/420-years-ago-astronomer-johannes-kepler-observes-a-supernova/"
+    ]
+  },
+  {
+    "id": 207,
+    "site_name": "Beijing, China",
+    "latitude": 39.9042,
+    "longitude": 116.4074,
+    "constellation": "Ophiuchus",
+    "description": "Observed SN 1604 as a guest star in East Asia.",
+    "tags": ["SN 1604", "astronomical record", "supernova"],
+    "image_url": "./img/sn1604-china.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed SN 1604 as a guest star in East Asia.",
+      "Chinese astronomers recorded its brightness and slow fading.",
+      "Corroborated European observations of SN 1604."
+    ],
+    "notes": [
+      "https://en.wikipedia.org/wiki/Kepler%27s_Supernova"
+    ]
+  },
+  {
+    "id": 208,
+    "site_name": "Luoyang, China",
+    "latitude": 34.6197,
+    "longitude": 112.4540,
+    "constellation": "Centaurus",
+    "description": "Observed SN 185, the earliest documented supernova.",
+    "tags": ["SN 185", "astronomical record", "supernova"],
+    "image_url": "./img/sn185-china.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "<strong>SN 185</strong>: Observed SN 185, the earliest documented supernova.",
+      "Recorded in the Book of Later Han, the guest star appeared on 7 December AD 185 and was visible for over 20 months.",
+      "Described as variegated and located near the Southern Gate asterism (likely α and β Centauri)."
+    ],
+    "notes": [
+      "https://www.nasa.gov/image-article/oldest-recorded-supernova/",
+      "https://ui.adsabs.harvard.edu/abs/2006ChJAA...6..635Z/"
+    ]
+  },
+  {
+    "id": 209,
+    "site_name": "Kaifeng, China",
+    "latitude": 34.8021,
+    "longitude": 114.3076,
+    "constellation": "Cassiopeia",
+    "description": "Observed SN 1181, recently linked to the Pa 30 nebula.",
+    "tags": ["SN 1181", "astronomical record", "supernova"],
+    "image_url": "./img/sn1181-china.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed SN 1181, recently linked to the Pa 30 nebula.",
+      "Visible for 185 days; described as bright as Saturn.",
+      "Modern counterpart identified as a rare Type Iax supernova."
+    ],
+    "notes": [
+      "https://www.sci.news/astronomy/supernova-remnant-sn-1181-10083.html"
+    ]
+  },
+  {
+    "id": 210,
+    "site_name": "Kyoto, Japan",
+    "latitude": 35.0116,
+    "longitude": 135.7681,
+    "constellation": "Cassiopeia",
+    "description": "Japanese records also describe SN 1181.",
+    "tags": ["SN 1181", "astronomical record", "supernova"],
+    "image_url": "./img/sn1181-japan.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Japanese records also describe SN 1181.",
+      "Historical astronomy aligns with Chinese records.",
+      "Observed for nearly six months in Japan."
+    ],
+    "notes": [
+      "https://chandra.harvard.edu/photo/2024/snr1181/"
+    ]
+  },
+  {
+    "id": 211,
+    "site_name": "Lake Tyrrell, Australia",
+    "latitude": -35.349,
+    "longitude": 142.813,
+    "constellation": "Carina",
+    "description": "Observed the eruption of Eta Carinae in the 1840s.",
+    "tags": ["Eta Carinae", "astronomical record", "supernova"],
+    "image_url": "./img/eta-carinae-boorong.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed the eruption of Eta Carinae in the 1840s.",
+      "Boorong people recorded the Great Eruption of Eta Carinae as Collowgullouric War.",
+      "This is the only known Indigenous observation of the outburst."
+    ],
+    "notes": [
+      "https://arxiv.org/abs/1009.2872",
+      "https://phys.org/news/2010-09-aboriginal-astronomers.html"
+    ]
+  },
+  {
+    "id": 212,
+    "site_name": "Cerro Tololo Observatory, Chile",
+    "latitude": -30.1690,
+    "longitude": -70.8040,
+    "constellation": "Dorado",
+    "description": "Observed SN 1987A, closest visible supernova since 1604.",
+    "tags": ["SN 1987A", "astronomical record", "supernova"],
+    "image_url": "./img/sn1987a-chile.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed SN 1987A, closest visible supernova since 1604.",
+      "First identified by Shelton and Duhalde in the southern hemisphere.",
+      "Led to a new era of supernova studies."
+    ],
+    "notes": [
+      "https://chandra.harvard.edu/deadstar/sn1987a.html"
+    ]
+  },
+  {
+    "id": 213,
+    "site_name": "Kamioka Observatory, Japan",
+    "latitude": 36.4275,
+    "longitude": 137.3100,
+    "constellation": "Dorado",
+    "description": "Detected neutrinos from SN 1987A.",
+    "tags": ["SN 1987A", "astronomical record", "supernova"],
+    "image_url": "./img/sn1987a-japan.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Kamiokande II detected neutrinos from SN 1987A before the optical signal arrived.",
+      "Confirmed theoretical models of core-collapse supernovae."
+    ],
+    "notes": [
+      "https://cerncourier.com/a/sn1987a-heralds-the-start-of-neutrino-astronomy/"
+    ]
+  },
+  {
+    "id": 214,
+    "site_name": "Mount Stromlo Observatory, Australia",
+    "latitude": -35.3167,
+    "longitude": 149.0083,
+    "constellation": "Dorado",
+    "description": "Optical monitoring of SN 1987A.",
+    "tags": ["SN 1987A", "astronomical record", "supernova"],
+    "image_url": "./img/sn1987a-australia.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Optical monitoring of SN 1987A.",
+      "Generated detailed light curves and spectra over months.",
+      "Helped trace the evolution of the shockwave and ring structure."
+    ],
+    "notes": [
+      "https://science.nasa.gov/missions/hubble/the-dawn-of-a-new-era-for-supernova-1987a/"
+    ]
+  },
+  {
+    "id": 215,
+    "site_name": "Luoyang, China",
+    "latitude": 34.6197,
+    "longitude": 112.4540,
+    "constellation": "Various",
+    "description": "Observed Halley's Comet in 240 BCE, described as a 'broom star'.",
+    "tags": ["Halley's Comet", "astronomical record", "comet"],
+    "image_url": "./img/halley-china.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed Halley's Comet in 240 BCE, described as a 'broom star'.",
+      "First confirmed sighting of Halley's Comet in Chinese records.",
+      "Observed over a period of several weeks."
+    ],
+    "notes": [
+      "https://www.wired.com/2011/03/0330ancient-chinese-see-halleys-comet"
+    ]
+  },
+  {
+    "id": 216,
+    "site_name": "Rome, Italy",
+    "latitude": 41.9028,
+    "longitude": 12.4964,
+    "constellation": "Various",
+    "description": "Observed Halley's Comet in 12 BCE, interpreted as an omen.",
+    "tags": ["Halley's Comet", "astronomical record", "comet"],
+    "image_url": "./img/halley-rome.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed Halley's Comet in 12 BCE, interpreted as an omen.",
+      "Linked to Agrippa's death and Caesar's comet by Roman observers."
+    ],
+    "notes": [
+      "https://www.britannica.com/topic/Halleys-Comet"
+    ]
+  },
+  {
+    "id": 217,
+    "site_name": "Hastings, England",
+    "latitude": 50.8552,
+    "longitude": 0.5729,
+    "constellation": "Various",
+    "description": "Observed Halley's Comet in 1066, depicted in the Bayeux Tapestry.",
+    "tags": ["Halley's Comet", "astronomical record", "comet"],
+    "image_url": "./img/halley-hastings.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed Halley's Comet in 1066, depicted in the Bayeux Tapestry.",
+      "The comet was seen as a powerful omen before the Norman conquest."
+    ],
+    "notes": [
+      "https://www.history.com/news/a-brief-history-of-halleys-comet-sightings"
+    ]
+  },
+  {
+    "id": 218,
+    "site_name": "Paris, France",
+    "latitude": 48.8566,
+    "longitude": 2.3522,
+    "constellation": "Various",
+    "description": "Observed Halley's Comet in 1910, during a time of public panic and fascination.",
+    "tags": ["Halley's Comet", "astronomical record", "comet"],
+    "image_url": "./img/halley-paris.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Observed Halley's Comet in 1910, during a time of public panic and fascination.",
+      "Believed to carry toxic gases; spurred social and scientific curiosity."
+    ],
+    "notes": [
+      "https://www.wired.com/2009/05/dayintech-0519"
+    ]
+  },
+  {
+    "id": 219,
+    "site_name": "Peñasco Blanco, Chaco Canyon, New Mexico",
+    "latitude": 36.0583,
+    "longitude": -107.9578,
+    "constellation": "Taurus",
+    "description": "Pictograph possibly depicting the 1054 CE supernova (SN 1054), observed by the Ancestral Puebloans.",
+    "tags": ["SN 1054", "astronomical record", "supernova"],
+    "image_url": "./img/sn1054-chaco.jpg",
+    "heading": 0,
+    "pitch": -30,
+    "altitude": 300,
+    "descriptions": [
+      "Pictograph possibly depicting the 1054 CE supernova (SN 1054), observed by the Ancestral Puebloans.",
+      "The pictograph features a crescent moon, a radiant star-like symbol, and a handprint.",
+      "Located near the Peñasco Blanco great house in Chaco Canyon, this site is accessible via a 9-mile round-trip hike.",
+      "The alignment of the crescent and star suggests a representation of the supernova observed in July 1054 CE."
+    ],
+    "notes": [
+      "https://www2.hao.ucar.edu/education/prehistoric-southwest/supernova-pictograph",
+      "https://earthsky.org/human-world/chaco-canyon-nm-rock-art-supernova-pictograph/",
+      "https://en.wikipedia.org/wiki/SN_1054"
+    ]
+  },
+  {
     "id": 999,
     "site_name": "Cultural Cosmos",
     "latitude": "",
@@ -248,6 +674,4 @@
     "altitude": 10000000,
     "descriptions": ["As we gaze upward, let us remember the connections between the sky, land, and life—and our responsibility to protect them for generations to come."]
   }
-
-
 ]
