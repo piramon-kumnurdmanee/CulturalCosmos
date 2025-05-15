@@ -34,26 +34,27 @@
       </nav>
     </header>
     <main>
-      <div id="infoContainer">
-        <div id="content">
-          <div id="mapContainer">
-            <div id="cesiumContainer"></div>
+      <div id="mainbox">
+        <div id="infoContainer">
+          <div id="content">
+            <div id="mapContainer">
+              <div id="cesiumContainer"></div>
+            </div>
+            <div id="infoPanel">
+              <p id="siteDescription"></p>
+            </div>
           </div>
-          <div id="infoPanel">
-            <p id="siteDescription"></p>
+          <div id="mapControls">
+            <button id="prevSlide">&#8592;</button>
+            <button id="nextSlide">&#8594;</button>
           </div>
         </div>
-        <div id="mapControls">
-          <button id="prevSlide">&#8592;</button>
-          <button id="nextSlide">&#8594;</button>
+        <div id="dropdown-box">
+          <select id="kind">
+            <option value="all">-- Select --</option>
+          </select>
+          <fieldset class="kind-radio" id="subkind"></fieldset>
         </div>
-      </div>
-      <div id="dropdown-box">
-        <select id="kind">
-          <option value="all">-- Select --</option>
-        </select>
-        <fieldset class="kind-radio" id="subkind"></fieldset>
-        <script></script>
       </div>
     </main>
     <script type="module" src="./script.js"></script>
