@@ -11,7 +11,7 @@
     "heading": 0,
     "pitch": null,
     "altitude": null,
-    "descriptions": ["This interactive globe is a journey through the skies of many worlds—cultural star stories, sacred skywatching sites, and historical astronomical records. Each point on the map marks a place where the sky and culture meet. Explore how people across time and place have looked up and made meaning of the cosmos. Whether you're interested in ancient observatories, cultural myths, documented supernovae and eclipses, or Indigenous lands where modern telescopes reside, this website invites you to rediscover astronomy as a human heritage."]
+    "descriptions": ["<p>This interactive globe is a journey through the skies of many worlds—cultural star stories, sacred skywatching sites, and historical astronomical records.<p/> <p>Each point on the map marks a place where the sky and culture meet.<p/> <p>Explore how people across time and place have looked up and made meaning of the cosmos.<p/> <p>Whether you're interested in ancient observatories, cultural myths, documented supernovae and eclipses, or Indigenous lands where modern telescopes reside, this website invites you to rediscover astronomy as a human heritage.<p/>"]
   },
   {
     "id": 1,
@@ -30,17 +30,17 @@
   },
   {
     "id": 2,
-    "site_name": "Machu Pichu",
+    "site_name": "Machu Picchu",
     "latitude": -13.1632,
     "longitude": -72.5453,
     "constellation": null,
     "tags": ["Incan", "ancient ruins", "sun temple"],
-    "image_url": "./img/machu-picchu.jpg",
-    "image_desc": "<a href=\"https://www.peruforless.com/blog/inca-astronomy\">How the Incas Saw the Stars</a>",
+    "image_url": "",
+    "image_desc": "",
     "heading": 0,
     "pitch": -10,
     "altitude": 3000,
-    "descriptions": ["Machu Pichu's architecture shows the intertwine of astronomy with the Incas' daily lives",
+    "descriptions": ["At Machu Picchu, celestial alignments and solar markers were built into the site’s architecture, showing how astronomy guided the Incas’ way of life. <img src=\"./img/machu-picchu.jpg\"> Image from <a href=\"https://whc.unesco.org/en/list/274/\">UNESCO </a> <p><a href=\"https://www.peruforless.com/blog/inca-astronomy\">Read how the Incas saw the stars</a><p/>",
     "Check out educational worksheet from NASA: <a href=\"https://spacemath.gsfc.nasa.gov/SED11/P6MachuPichu.pdf\">Math of Machu Pichu's Astronomy</a>"],
     "notes" : ["https://indiaoutbound.info/experiences/machu-picchu-where-astronomy-meets-spirituality/"]
   },
