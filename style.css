@@ -119,14 +119,25 @@ main {
 
 #infoPanel {
   @container (width >= 960px) {
-    width: 38%;
+    width: 48%;
   }
   padding: 25px;
-  height: 360px;
+  max-height: 80%;
+  height: auto;
   overflow-y: auto;
   text-align: left;
   color: black;
 }
+
+#infoPanel img {
+  max-width: 100%;
+  height: auto;
+  max-height: 40vh; /* 40% of the viewport height */
+  display: block;
+  margin: 1em auto;
+  object-fit: contain;
+}
+
 
 #mapContainer {
   @container (width < 960px) {
