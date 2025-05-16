@@ -126,9 +126,6 @@ main {
   overflow-y: auto;
   text-align: left;
   color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 #mapContainer {
