@@ -1,7 +1,7 @@
 [
   {
     "id": 0,
-    "site_name": "Cultural Cosmos",
+    "site_name": "Culture in the Cosmos",
     "latitude":  "",
     "longitude": "",
     "constellation": "",
@@ -11,7 +11,7 @@
     "heading": 0,
     "pitch": null,
     "altitude": null,
-    "descriptions": [ "Sky, Land, and Life"]
+    "descriptions": ["This interactive globe is a journey through the skies of many worlds—cultural star stories, sacred skywatching sites, and historical astronomical records. Each point on the map marks a place where the sky and culture meet. Explore how people across time and place have looked up and made meaning of the cosmos. Whether you're interested in ancient observatories, cultural myths, documented supernovae and eclipses, or Indigenous lands where modern telescopes reside, this website invites you to rediscover astronomy as a human heritage."]
   },
   {
     "id": 1,
